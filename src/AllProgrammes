@@ -1,0 +1,1030 @@
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+//Revrse a string 
+
+public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String Original;
+
+		Scanner s = new Scanner(System.in);
+		System.out.println("Please enter string to revrse");
+		Original = s.nextLine();
+		s.close();
+
+//		String s = "My name is khan " ;
+		String rev = " ";
+		for (int i = 0; i < Original.length(); i++) {
+			rev = Original.charAt(i) + rev;
+			System.out.println(rev);
+		}
+
+	}
+	
+	+++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	//Write a Java Program for the Fibonacci series.
+	public static void main(String[] args) {
+		
+		
+int a=0 , b=0 , c=1 ; 
+
+int num ;
+System.out.println("Please enter number for generating fibo series ");
+Scanner in = new Scanner(System.in);
+
+num = in.nextInt();						
+
+for(int i = 0 ; i<num ; i++) {
+	a=b ; 
+	b =c ; 
+	c= a+b;
+	System.out.println(a + "");
+}
+	
+}
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+	String str = "Rajesh is Ravan" ; 
+	
+	for (int i =0 ; i<=str.length(); i++) {
+		for (int j =i+1 ;j<=str.length()-1; j++) {
+			
+			if (str.charAt(i)== str.charAt(j)) {
+				
+				System.out.println( str.charAt(i) +"is Duplicate");
+			}
+		}
+	
+	}
+	
+	++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//Write a Java Program for finding the duplicate character 
+	
+	String s = "Hello World ";
+
+		Map<Character, Integer> map = new HashMap<>();
+
+		for (int i = 0; i <= s.length(); i++) {
+			char c = s.charAt(i);
+			if (c != ' ') {
+				// If character is already in the map, increment its count by 1
+				if (map.containsKey(c)) {
+					map.put(c, map.get(c) + 1);
+				}
+				// Otherwise, add the character to the map with count 1
+				else {
+					map.put(c, 1);
+				}
+			}
+			System.out.println("Duplicate characters in the input string: ");
+			// Loop through the map and print characters with count > 1
+			for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+				if (entry.getValue() > 1) {
+					System.out.println(entry.getKey());
+				}
+
+			}
+	+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Find the Largest , second largest , min and second min number in array of integer . 
+
+	int[] arr = { 10, 23, 234, 222, 12, 344 };
+
+	 
+		int max = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+        int lowest = Integer.MAX_VALUE;
+        int secondLowest = Integer.MAX_VALUE;
+
+		for (int i = 0; i < arr.length; i++) {
+
+			if (arr[i] > max) {
+				secondLargest = max;
+				max = arr[i];
+			} else if (arr[i] > secondLargest && arr[i] != max) {
+				secondLargest = arr[i];
+				// update lowest and second lowest
+				 if (arr[i] < lowest) {
+		                secondLowest = lowest;
+		                lowest = arr[i];
+		            } else if (arr[i] < secondLowest && arr[i] != lowest) {
+		                secondLowest = arr[i];
+		            }
+			}
+		}
+		System.out.println("Largest Number in array is " + max);
+		System.out.println("Second Largest Number in array is " + secondLargest);
+		System.out.println("lowest  Number in array is " + lowest);
+		System.out.println("Second lowest Number in array is " + secondLowest);
+		
+		++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	/Write a Java Program for finding common number btween two arrays 
+	public static void main(String[] args) {
+
+		int[] array1 = {1, 2, 3, 4, 5};
+	    int[] array2 = {4, 5, 6, 7, 8};
+	    
+	    Set<Integer> set1 = new HashSet<Integer>();
+	    for (int i : array1) {
+	        set1.add(i);
+	    }
+	    
+	    Set<Integer> intersection = new HashSet<Integer>();
+	    for (int i : array2) {
+	        if (set1.contains(i)) {
+	            intersection.add(i);
+	        }
+	    }
+	    
+	    System.out.println("Intersection of array1 and array2: " + intersection);
+
+	}
+	
+	+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+public class FindMissingNumber {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 5, 6};
+        int n = arr.length + 1;
+        int sum = n * (n + 1) / 2;
+        int missingNumber = sum;
+        for (int i = 0; i < arr.length; i++) {
+            missingNumber -= arr[i];
+        }
+        if (missingNumber == n) {
+            System.out.println("-1");
+        } else {
+            System.out.println("Missing number is " + missingNumber);
+        }
+    }
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // java program to find out position of character in the String.
+
+    public static List<Integer> findCharacterPositions(String text, char targetChar) {
+        List<Integer> positions = new ArrayList<>();
+        
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == targetChar) {
+                positions.add(i);
+            }
+        }
+        
+        return positions;
+    }
+    
+    public static void main(String[] args) {
+        String inputString = "Hello, this is a sample string.";
+        char targetCharacter = 't';
+        
+        List<Integer> charPositions = findCharacterPositions(inputString, targetCharacter);
+        
+        if (charPositions.isEmpty()) {
+            System.out.println("The character '" + targetCharacter + "' was not found in the string.");
+        } else {
+            System.out.println("The character '" + targetCharacter + "' was found at positions: " + charPositions);
+        }
+    }
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  String inputString = "Hello, this is a sample string with vowels.";
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < inputString.length(); i++) {
+            char currentChar = inputString.charAt(i);
+
+            // Check if the current character is a vowel (both uppercase and lowercase)
+            if (currentChar != 'a' && currentChar != 'e' && currentChar != 'i' &&
+                currentChar != 'o' && currentChar != 'u' &&
+                currentChar != 'A' && currentChar != 'E' && currentChar != 'I' &&
+                currentChar != 'O' && currentChar != 'U') {
+                result.append(currentChar);
+            }
+        }
+
+        System.out.println("Original String: " + inputString);
+        System.out.println("String without vowels: " + result.toString());
+    }
+
+    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    package Pack;
+
+public class charrep {
+
+	
+		
+		public static String testchar (String str1,String str2) {
+			
+			StringBuilder stw = new StringBuilder();
+			
+			
+			
+			for(int i=0;i<str1.length() || i<str2.length();i++) {
+				
+				if(i<str1.length())
+						stw.append(str1.charAt(i));
+				
+				
+				if(i<str2.length())
+					stw.append(str2.charAt(i));
+		}
+		
+			return stw.toString();
+		
+		}
+
+	
+
+public static void main(String[] args) {
+	// TODO Auto-generated method stub
+	String str1 ="abc";
+	String str2="def";
+	System.out.println(testchar(str1,str2));
+	
+}
+}
+
+Character occurence 
+package Pack;
+import java.util.*;
+public class occurence {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		        String str ="Helloworld";
+		        int count =0;
+		        char []strw=str.toCharArray();
+		       
+		        
+		     Map<Character,Integer>hm = new HashMap<Character,Integer>();
+		        for(int i=0;i<strw.length;i++){
+		        	count =0;
+		            for(int j=0;j<strw.length;j++){
+		                if(strw[i]==strw[j]){
+		                    count++;
+		                    
+		                }
+		                hm.put(strw[i],count);
+		            }
+		        }
+		        
+		        System.out.println(hm);
+		        
+
+	}
+
+}
+\
+****
+reverse of string
+
+package Pack;
+
+public class rev {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String str="my name is mohammed faizan";
+		String [] strw =str.split(" ");
+		String revstr="";
+		
+		
+		
+		for(int i=strw.length-1;i>=0;i--) {
+			
+			
+		System.out.println(strw[i]);	
+		
+		
+		}
+	
+	}
+}
+
+***right angle triangle
+package Pack;
+
+public class right {
+	
+	public static void rightangle(int n) {
+		
+		int a ,b;
+		
+		for(a=0;a<n;a++) {
+			
+			for(b=0;b<=a;b++) {
+				System.out.println("*  ");
+								
+			}
+			System.out.println();
+		}
+		
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int k=5;
+		rightangle(5);
+	
+
+	}
+
+}
+
+
+,
+,.
+,,
+,,,
+,,,,
+,,,,,
+
+Sum of array between two indexes
+
+package Pack;
+
+import java.util.Arrays;
+
+public class sumof {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] arr = {3,4,6,1,5,2,5,2,1};
+		int sum=7;
+		int n=arr.length;
+		tst(n,sum,arr);
+	    
+	}
+		
+		public static void tst(int n ,int sum,int[] arr) {
+		
+		
+			
+		for(int i=0;i<n;i++) {
+			for(int j=i+1;j<n;j++) {
+			if( arr[i]+arr[j]==sum) {
+				
+				System.out.println("The two numbers are"+arr[i]+ "and "+arr[j]);
+				return;
+			}
+			}	
+		}
+		System.out.println("There is no such arr");
+		
+			
+			}}
+
+
+Vowels
+
+package Pack;
+
+public class vowels {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String s ="aeoohfjfil";
+		
+		for(int i =0;i<s.length();i++) {
+			
+			if(s.charAt(i)=='a'|| s.charAt(i)=='e'|| s.charAt(i)=='i'|| s.charAt(i)=='o'||
+					s.charAt(i)=='u'){
+				
+				System.out.println("vowels present"+s.charAt(i) +" at index"+i);
+				
+				
+			}
+			
+		}
+
+	}
+
+}
+
+
+Collection iteration
+
+package PRac;
+import java.util.*;
+
+public class collect {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	Map<String,Integer> hmap = new HashMap<String, Integer>();
+	hmap.put("test",1);
+	hmap.put("test2",2);
+	hmap.put("teste",1);
+	hmap.put("tessdft2",2);
+	hmap.remove("test2",2);
+	
+
+    for(Map.Entry<String,Integer> s:hmap.entrySet()) {
+    	System.out.println(s.getKey() +"="+s.getValue());
+    	
+    	
+    }
+
+	}
+
+}
+Two consecutive strings
+
+
+package PRac;
+
+public class Cons {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String text ="adsc";
+		System.out.println("two consective"+ test(text));
+		// text="java";
+		//System.out.println("no two consective"+ test(text));
+	}
+	
+	public static boolean test (String text) {
+		for(int i=0;i<text.length();i++) {
+			
+			if(text.charAt(i)==text.charAt(i+1))
+				return true;
+			return false;
+		
+	}
+		return false;
+
+}
+}
+
+
+Constructor
+
+package PRac;
+
+public class Constructor {
+	
+	int a;
+	
+	
+	public Constructor() {
+		a =22;
+		System.out.println("testing");
+		
+	
+		
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Constructor s = new Constructor();
+		System.out.println(s.a);
+		
+		
+		
+		
+
+	}
+
+}
+
+
+Duplicate of strings
+
+package PRac;
+
+import java.util.HashMap;
+
+public class Dup {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String st ="This is india and india is to to";
+		String strw[] = st.split(" ");
+		int count =0;
+		
+		
+		for(int i=0;i<strw.length;i++) {
+			count =1;
+			for(int j=i+1;j<strw.length;j++) {
+				if(strw[i].equals(strw[j])) {
+					count++;
+				}
+				
+			}
+			
+			if(count>1&&strw[i]!="0") 
+				System.out.println(strw[i]);
+			
+		}
+				}
+				
+}
+
+Palindrome
+
+package PRac;
+
+public class pali {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str ="malayalam";
+		String strev ="";
+		
+		for(int i=str.length()-1;i>= 0;--i) {
+			strev = strev + str.charAt(i);
+		}
+		
+		if(str.equals(strev)) {
+			
+			System.out.println("String is palindrome");
+		
+		}
+		else
+		{
+			System.out.println("String is not palindrome");
+		}
+		
+		
+
+	}
+
+}
+
+
+Occurence using hasmap
+
+package PRac;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class Prac {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str ="aabbbcccccaa";
+		int count =0;
+		char [] strw = str.toCharArray();
+		HashMap<Character,Integer> hmap = new HashMap<Character,Integer>();
+		
+		for(char i : strw) {
+					
+			if(hmap.containsKey(i)) {
+							
+				hmap.put(i, hmap.get(i)+1);
+				
+			}
+			
+			else {
+				
+				hmap.put(i, 1);
+			}
+					}
+		
+		System.out.println(hmap);
+		
+	}
+
+}
+Substring of individuals
+
+package PRac;
+
+public class Substring{
+
+public static void comb(String str, int n) {
+	
+	for(int i=0;i<n;i++) 
+		for(int j=i+1;j<=n;j++) 
+			
+			System.out.println(str.substring(i, j));
+			
+		}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String str ="abcdeftttt";
+		comb(str,str.length());
+				
+				
+
+	}
+
+}
+
+
+method overloading
+
+package PRac;
+
+public class test {
+	
+	public static int addnum(int a,int b) {
+		
+		return a+b;
+		
+	}
+	
+public static int addnum(int a,int b,int c) {
+		
+		return a+b+c;
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println(test.addnum(2, 3));
+		System.out.println(test.addnum(2, 3, 5));
+
+	}
+
+}
+
+Array seggregate
+
+package Test;
+
+import java.util.Arrays;
+
+public class arrayseggregate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int a [] = {0,1,1,1,0,0,0};
+		int i, num_size=a.length;
+		int left =0, right=num_size-1;
+		
+		Arrays.toString(a);
+		
+		while(left <right) {
+			while (a[left]==0 && left<right)
+				left++;
+			
+			while (a[right]==1 && left< right)
+				right--;
+				
+				if(left<right) {
+					
+					a[left]=0;
+					a[right]=1;
+					left++;
+					right--;
+					
+					
+					
+				}
+				
+			}
+			
+			System.out.println("Segregate of array"+Arrays.toString(a));
+			
+		}
+		
+		
+		
+
+	}
+
+
+Compare common elements
+
+package Test;
+
+public class CompareElemnts {
+
+ public static void fcommon ( int ar1[], int ar2[] ,int ar3[] ) {
+		int i=0,j=0,k=0;
+		
+		while(i<ar1.length && j < ar2.length && k < ar3.length) {
+			
+			if (ar1[i] == ar2[j] && ar2[j]==ar3[k]) {
+				
+				System.out.println(ar1[i] + " ");
+				i++;
+				j++;
+				k++;
+			}
+		
+		
+		else if(ar1[i] < ar2[j])
+			i++;
+		
+		else if(ar2[j]<ar3[k])
+			j++;
+		
+		else 
+			k++;
+	
+	}
+  }
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int [] ar1 ={1,5,5,0};
+		int [] ar2 ={1,2,1,3};
+		int [] ar3 ={1,2,1,3};
+		
+		CompareElemnts.fcommon(ar1, ar2, ar3);
+		
+		
+		
+	
+			
+			
+		}
+
+	}
+
+
+Merge and sort two elements
+
+package Test;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class mergeoftwoelements {
+	
+	public static int[] merge(int [] arrayA,int[] arrayB) {
+		
+		int [] mergerarray= new int [arrayA.length + arrayB.length];
+		int i=0; int j = 0;int k = 0;
+		
+		while(i<arrayA.length) {
+			mergerarray[k]=arrayA[i];
+			i++;
+			k++;
+			
+					
+		}
+		
+		while(j<arrayB.length) {
+			mergerarray[k]=arrayB[i];
+			j++;
+			k++;
+						
+		}
+		Arrays.sort(mergerarray);
+		return mergerarray;
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		int [] arrayA= {2,-9,3,4,8};
+		int [] arrayB= {10,-9,5,9,11,19};
+		int[] merger = merge(arrayA,arrayB);
+		
+		Arrays.toString(arrayA);
+		Arrays.toString(arrayB);
+		System.out.println(Arrays.toString(merger));
+	}
+
+}
+
+
+Fibonacci series
+
+package Test;
+
+public class palindrome {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n1=0,n2=1,n3,count=10;
+		
+		for(int i=2;i<count;++i) {
+			n3=n1+n2;
+			System.out.println(n3);
+			n1=n2;
+			n2=n3;
+					
+			
+			
+			
+		}
+
+	}
+
+}
+
+
+Prime numbers
+
+package Test;
+
+public class Prime {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int n =20,count;
+		
+		for(int i=1;i<=n;i++) {
+			count=0;
+			for(int j=2;j<=i/2;j++) {
+			if(i%j==0) {
+				count++;
+				break;
+			}	
+			}
+			if(count==0) {
+			System.out.println("Prime numbers are"+i);
+			}
+			
+					}
+		
+		
+		}
+
+	}
+
+
+ANagram and replace
+
+package Test;
+
+import java.util.Arrays;
+
+public class repl {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String s ="aldfkj0r9%%%$#";
+		
+		System.out.println(s.replaceAll("[^a-z,A-z]", " "));
+		
+		System.out.println(s.replaceAll("[^a-z,A-z]", " "));
+		
+		boolean result =repl.test("legal","egall");
+		System.out.println(result);
+
+	}
+	
+	public static boolean test (String a, String b) {
+		
+		a = a.replaceAll("\\s","").toLowerCase();
+		b=b.replaceAll("\\s","").toLowerCase();
+		
+		if(a.length()!=b.length()) 
+			return false;
+		
+		char[] first = a.toCharArray();
+		char[] second =b.toCharArray();
+		
+		Arrays.sort(first);
+		Arrays.sort(second);
+		
+		return Arrays.equals(first, second);
+		
+		
+	}
+
+}
+
+
+package Test;
+
+public class special {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String str ="abc#$#23asc";
+		
+		String words =str.replaceAll("[^a-z,A-Z]","");
+	  String spec=str.replaceAll("[^$#]","");
+	String numb=str.replaceAll("[^0-9]","");
+	
+	System.out.println("Chars:"+words);
+	System.out.println("SplChars:"+spec);
+	System.out.println("Numerics:"+numb);
+	
+
+	}
+
+}
+
+Swap of no and strings
+
+package Test;
+
+public class swap {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int i = 10, j =20;
+	
+		
+		i =i+j;
+		j=i-j;
+		i=i-j;
+		
+		System.out.println(i);
+		System.out.println(j);
+		
+
+	}
+
+}
+
+
+package Test;
+
+public class swapofstringsw {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String st1 = "automation";
+		String st2 ="testing";
+		
+		st1= st1 + st2;
+		
+		st2=st1.substring(0,st1.length()-st2.length());
+		
+		st1 = st1.substring(st2.length());
+		
+		System.out.println(st1+"two swaps"+ st2);
+		
+		
+
+	}
+
+}
+ uppercase or low
+
+package Test;
+
+public class uporlow {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String str ="aAlkSS";
+		char []st=str.toCharArray();
+		
+		for(int i =0;i<st.length;i++) {
+			
+			if(st[i]=='a' && st[i]=='z') {
+				
+				
+			}
+			System.out.println("Contains lower case");
+		}
+		
+
+	}
+
+}
+
+
+
+			
+				
+				
+				
+				
+				
+				
+				
+			
+				
+				
+				
+				
+			
+		
+		
+		
+		
+		
+
+
+
+
+
+
+	
+
+
+    
+    
+    
